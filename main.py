@@ -69,7 +69,10 @@ class compute_sqrt:
     def execute(self,x):
         return self.__sqrt_iter(x)
 
-
+def test_compute_sqrt():
+    test=compute_sqrt()
+    print(test.execute(3))
+    print(test.execute(1000))
 
 
 
@@ -85,6 +88,5 @@ if __name__=="__main__":
     #     input_str=input()
     #     parse(input_str)
 
-    test=compute_sqrt()
-    print(test.execute(3))
+    test_compute_sqrt()
 
