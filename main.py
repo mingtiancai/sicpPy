@@ -1,5 +1,6 @@
 import os
 import re
+import math
 
 
 brackets_list=["(",")"]
@@ -44,6 +45,29 @@ class p_1_5:
     def execute(self):
         self.__test(0,self.__p())
 
+class compute_sqrt:
+    def __init__(self):
+        self.__guess=1.0
+        self.__error_limit=0.0001
+    def __average(self,x,y):
+        return 0.5*(x+y)
+    def __imporve(self,x):
+        t=x/self.__guess
+        self.__guess=self.__average(self.__guess,t)
+    def __good_enough(self,x):
+        if(abs(self.__guess*self.__guess-x)<self.__error_limit):
+            return True
+        else:
+            return False
+    def __sqrt_iter(self,x):
+        if(self.__good_enough(x)):
+            return self.__guess
+        else:
+            self.__imporve(x)
+            return self.__sqrt_iter(x)
+
+    def execute(self,x):
+        return self.__sqrt_iter(x)
 
 
 
@@ -61,8 +85,6 @@ if __name__=="__main__":
     #     input_str=input()
     #     parse(input_str)
 
-    t=p_1_5()
-    t.execute()
-
-
+    test=compute_sqrt()
+    print(test.execute(3))
 
