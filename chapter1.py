@@ -113,6 +113,21 @@ def sum(a,b,f):
 def test_sum():
     print(sum(1,2,g))
 
+def g1(x):
+    return x*x
+def integral(a,b,f,dx):
+    res=0
+    n=round((b-a)/dx)
+    for i in range(n):
+        res+=f(a+dx/2+i*dx)*dx
+    return res
+
+def test_integral():
+    print(integral(1,2,g1,0.01))
+    print(integral(1, 2, g1, 0.001))
+
+
+
 def test():
     string = "(* 1 2 )"
     pattern = re.compile(r'\s+')
@@ -125,4 +140,5 @@ def test():
     #     parse(input_str)
     # test_p_1_10()
     # test_cube()
-    test_sum()
+    # test_sum()
+    test_integral()
