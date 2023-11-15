@@ -102,6 +102,17 @@ def test_cube():
     print("cube 2: ",cube(2))
     print("sum cube: ",sum_cube(2))
 
+def g(x):
+    return 2*x
+def sum(a,b,f):
+    res=0
+    for i in range(a,b+1):
+        res+=f(i)
+    return res
+
+def test_sum():
+    print(sum(1,2,g))
+
 def test():
     string = "(* 1 2 )"
     pattern = re.compile(r'\s+')
@@ -113,4 +124,5 @@ def test():
     #     input_str=input()
     #     parse(input_str)
     # test_p_1_10()
-    test_cube()
+    # test_cube()
+    test_sum()
