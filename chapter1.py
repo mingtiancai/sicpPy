@@ -2,6 +2,8 @@ import os
 import re
 import math
 
+from abc import ABCMeta, abstractmethod
+
 
 brackets_list=["(",")"]
 operator_list=["+","-","*","/","%"]
@@ -142,6 +144,36 @@ def test_local_var():
 def test_lambda():
     print(tl(3))
 
+
+
+class Shape(metaclass=ABCMeta):
+    @abstractmethod
+    def area(self):
+        pass
+
+class Rectangle(Shape):
+    def __init__(self, width, height):
+        self.width = width
+        self.height = height
+
+    def area(self):
+        return self.width * self.height
+
+class Circle(Shape):
+    def __init__(self, radius):
+        self.radius = radius
+
+    def area(self):
+        return 3.14 * self.radius * self.radius
+
+def test_abc():
+    rectangle = Rectangle(5, 10)
+    print("Rectangle Area:", rectangle.area())
+
+    circle = Circle(3)
+    print("Circle Area:", circle.area())
+
+
 def test():
     string = "(* 1 2 )"
     pattern = re.compile(r'\s+')
@@ -157,4 +189,5 @@ def test():
     # test_sum()
     # test_integral()
     # test_lambda()
-    test_local_var()
+    # test_local_var()
+    test_abc()
