@@ -126,7 +126,21 @@ def test_integral():
     print(integral(1,2,g1,0.01))
     print(integral(1, 2, g1, 0.001))
 
+tl=lambda x: x*x
 
+def test_local_var():
+    a=10
+
+    def f(x):
+        a=5
+        print(a)
+        return a*x
+
+    print(f(10))
+    print(a)
+
+def test_lambda():
+    print(tl(3))
 
 def test():
     string = "(* 1 2 )"
@@ -141,4 +155,6 @@ def test():
     # test_p_1_10()
     # test_cube()
     # test_sum()
-    test_integral()
+    # test_integral()
+    # test_lambda()
+    test_local_var()
